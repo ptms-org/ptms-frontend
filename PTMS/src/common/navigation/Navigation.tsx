@@ -1,49 +1,67 @@
-import { BottomNav } from "./BottomNav";
-import Logo from "../../assets/logoB&W.svg";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import { Outlet } from "react-router-dom";
+import * as React from "react";
+import Wrapper from "@mui/material/Box";
+import Container from "@mui/material/BottomNavigation";
+import NavLink from "@mui/material/BottomNavigationAction";
+import HomeIcon from "@mui/icons-material/Home";
+import NewProjectIcon from "@mui/icons-material/NoteAdd";
+import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+import { Link } from "react-router-dom";
 import { useResponsive } from "../mediaQuery";
+import { pathsURL } from "../paths";
 
 export const Navigation = () => {
-  const { media630, media580, media420 } = useResponsive();
+  const [value, setValue] = React.useState(0);
+  const { media1070, media890, media630 } = useResponsive();
+
   return (
-    <>
-      <Grid
-        container
-        spacing={0}
+    <Wrapper>
+      <Container
         sx={{
           background: "#dfdfdf",
-          width: "100%",
-          justifyContent: media420 ? "center" : "space-between",
-          flexWrap: "wrap",
-          marginLeft: "auto",
+          minHeight: media630 ? 50 : 100,
+          marginRight: media890 ? 5 : media630 ? 1 : 10,
+          minWidth: media630 ? 250 : media1070 ? 330 : 700,
+        }}
+        showLabels
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
         }}
       >
-        <Grid item>
-          <Box
-            sx={{
-              width: media630 ? 120 : "auto",
-              padding: media580 ? "10px" : 1,
-              paddingBottom: 0,
-            }}
-            component="img"
-            src={Logo}
-            alt="Logo"
-          />
-        </Grid>
-        <Grid
-          item
+        <NavLink
+          label="Home"
+          icon={<HomeIcon style={{ fontSize: media630 ? 18 : 30 }} />}
+          component={Link}
+          to={pathsURL.home}
           sx={{
-            padding: 0,
+            "& .MuiBottomNavigationAction-label": {
+              fontSize: media630 ? "10px" : "medium",
+            },
           }}
-        >
-          <BottomNav />
-        </Grid>
-      </Grid>
-      <main>
-        <Outlet />
-      </main>
-    </>
+        />
+        <NavLink
+          label="New project"
+          icon={<NewProjectIcon style={{ fontSize: media630 ? 18 : 30 }} />}
+          component={Link}
+          to={pathsURL.createProject}
+          sx={{
+            "& .MuiBottomNavigationAction-label": {
+              fontSize: media630 ? "10px" : "medium",
+            },
+          }}
+        />
+        <NavLink
+          label="User"
+          icon={<ManageAccountsIcon style={{ fontSize: media630 ? 18 : 30 }} />}
+          component={Link}
+          to={pathsURL.user}
+          sx={{
+            "& .MuiBottomNavigationAction-label": {
+              fontSize: media630 ? "10px" : "medium",
+            },
+          }}
+        />
+      </Container>
+    </Wrapper>
   );
 };
