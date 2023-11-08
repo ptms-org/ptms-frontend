@@ -4,10 +4,11 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import { Layout } from "./features/Layout/Layout";
+import { pathsURL } from "./common/paths";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: pathsURL.home,
     element: <Layout />,
     children: [
       {
@@ -15,11 +16,11 @@ const router = createBrowserRouter([
         element: <>Home</>
       },
       {
-        path: 'create-project',
+        path: pathsURL.createProject,
         element: <>Create Project</>
       },
       {
-        path: 'user',
+        path: pathsURL.user,
         element: <>User</>
       }
     ]
