@@ -13,11 +13,12 @@ export const Header = () => {
         container
         spacing={0}
         sx={{
-          background: "#dfdfdf",
-          width: "100%",
+          position: 'fixed', top: 0, width: '100%', zIndex: 1000, 
+          background: "#343A40",
           justifyContent: media420 ? "center" : "space-between",
           flexWrap: "wrap",
           marginLeft: "auto",
+          
         }}
       >
         <Grid item>
@@ -26,6 +27,7 @@ export const Header = () => {
               width: media630 ? 120 : "auto",
               padding: media580 ? "10px" : 1,
               paddingBottom: 0,
+              color: "#fff",
             }}
             component="img"
             src={Logo}

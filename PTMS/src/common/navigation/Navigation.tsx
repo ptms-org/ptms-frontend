@@ -17,7 +17,8 @@ export const Navigation = () => {
     <Wrapper>
       <Container
         sx={{
-          background: "#dfdfdf",
+          background: "#343A40",
+       
           minHeight: media630 ? 50 : 100,
           marginRight: media890 ? 5 : media630 ? 1 : 10,
           minWidth: media630 ? 250 : media1070 ? 330 : 700,
@@ -36,6 +37,16 @@ export const Navigation = () => {
           sx={{
             "& .MuiBottomNavigationAction-label": {
               fontSize: media630 ? "10px" : "medium",
+              color: "white",
+            },
+            "& .MuiSvgIcon-root": { 
+              fill: "white",
+            },
+            "&.Mui-selected": { 
+              color: "#007BFF",
+              "& .MuiSvgIcon-root": {
+                fill: "#007BFF", 
+              }
             },
           }}
         />
@@ -47,6 +58,16 @@ export const Navigation = () => {
           sx={{
             "& .MuiBottomNavigationAction-label": {
               fontSize: media630 ? "10px" : "medium",
+              color: "white",
+            },
+            "& .MuiSvgIcon-root": { 
+              fill: "white",
+            },
+            "&.Mui-selected": { 
+              color: "#007BFF",
+              "& .MuiSvgIcon-root": {
+                fill: "#007BFF", 
+              }
             },
           }}
         />
@@ -58,6 +79,16 @@ export const Navigation = () => {
           sx={{
             "& .MuiBottomNavigationAction-label": {
               fontSize: media630 ? "10px" : "medium",
+              color: "white",
+            },
+            "& .MuiSvgIcon-root": { 
+              fill: "white",
+            },
+            "&.Mui-selected": { 
+              color: "#007BFF",
+              "& .MuiSvgIcon-root": {
+                fill: "#007BFF", 
+              }
             },
           }}
         />
