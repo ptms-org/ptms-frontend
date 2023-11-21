@@ -3,8 +3,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./App.css";
-import { Layout } from "./features/Layout/Layout";
+import { Layout } from "./features/layout/Layout";
 import { pathsURL } from "./common/paths";
+import { ProjectSite } from "./features/projectSite/ProjectSite";
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <>Home</>
+        element: <ProjectSite/>
       },
       {
         path: pathsURL.createProject,
